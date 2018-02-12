@@ -1,0 +1,101 @@
+/* RGB */
+/* Font families */
+/* Font sizes */
+body {
+  font-family: "Quattrocento Sans", sans-serif;
+  max-width: 1024px;
+  margin: 0 auto; }
+
+header {
+  text-align: center; }
+  header h1 {
+    margin: 12px 0 24px 0;
+    font-family: "Sacramento", cursive;
+    font-size: 60px;
+    font-weight: 500;
+    color: #73afc8;
+    text-align: center; }
+  header nav ul {
+    text-align: right; }
+  header nav li {
+    display: inline;
+    padding: 0 12px 0 8px;
+    font-size: 20px;
+    color: #a7b0ca; }
+
+.box {
+  display: inline-block;
+  box-sizing: border-box;
+  max-width: 49%;
+  padding: 24px; }
+
+.info {
+  margin-top: 24px; }
+  .info p {
+    margin: 0;
+    padding: 2px 16px; }
+  .info .producer {
+    font-weight: 600; }
+  .info .details {
+    color: gray;
+    font-size: 12.8px; }
+
+.notes {
+  font-family: "Maven Pro", "sans-serif";
+  line-height: 20px; }
+
+.wine {
+  vertical-align: top;
+  text-align: right; }
+  .wine .label {
+    display: inline-block;
+    max-width: 45%; }
+
+.painting img {
+  border: solid 1px;
+  border-bottom-color: #ffe;
+  border-left-color: #eed;
+  border-right-color: #eed;
+  border-top-color: #ccb;
+  max-height: 100%;
+  max-width: 100%; }
+
+.painting .frame {
+  background-color: #ccb;
+  border: solid 2.5vmin #eee;
+  border-radius: 2px;
+  border-bottom-color: #f9eaa7;
+  border-left-color: #ecdd98;
+  border-right-color: #ecdd98;
+  border-top-color: #e2d493;
+  box-shadow: 0 0 3px 0 rgba(60, 60, 60, 0.25) inset, 0 2px 5px 2px rgba(60, 60, 60, 0.25);
+  max-height: 75%;
+  max-width: 75%;
+  padding: 0.5vmin 0.5vmin 0 0.5vmin;
+  position: relative;
+  text-align: center; }
+  .painting .frame::before {
+    border-radius: 2px;
+    bottom: -1vmin;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25) inset;
+    content: '';
+    left: -1vmin;
+    position: absolute;
+    right: -1vmin;
+    top: -1vmin; }
+  .painting .frame::after {
+    border-radius: 2px;
+    bottom: -1.5vmin;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+    content: '';
+    left: -1.5vmin;
+    position: absolute;
+    right: -1.5vmin;
+    top: -1.5vmin; }
+
+footer {
+  display: block;
+  clear: both;
+  padding: 24px 0 0 12px;
+  text-align: center;
+  font-size: 14px; }
