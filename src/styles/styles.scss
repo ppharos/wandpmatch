@@ -53,6 +53,10 @@ body {
 //   // border: solid 1px red;
 // }
 
+a {
+  text-decoration: none;
+}
+
 .info {
   margin-top: 24px;
   p {
@@ -73,7 +77,10 @@ body {
   line-height: 1.25*$def-size;
 }
 
-/*
+.hidden {
+  visibility: hidden;
+}
+
 .wine {
   vertical-align: top;
   text-align: right;
@@ -138,4 +145,3 @@ footer {
   text-align: center;
   font-size: 14px;
 }
-*/

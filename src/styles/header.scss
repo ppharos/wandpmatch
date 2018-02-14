@@ -20,6 +20,9 @@ header {
       padding: 0 12px 0 8px;
       font-size: $nav-size;
       color: $nav-color;
+      &:hover {
+        color: darken($nav-color, 40%);
+      }
     }
   }
 }

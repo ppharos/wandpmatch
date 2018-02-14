@@ -1,5 +1,6 @@
 @import 'vars';
-
+@import 'styles';
+$arrow-color: rgba(115, 175, 200, 0.7);
 h2 {
   margin: 0;
   font-family: $title-font;
@@ -28,6 +29,10 @@ h2 {
   height: 100%;
   display: inline-block;
   font-size: 40px;
-  color: rgba(115, 175, 200, 0.7);
+  color: $arrow-color;
   // border: solid 1px blue;
+  &:hover {
+    color: lighten($arrow-color, 20%);
+    cursor: pointer;
+  }
 }
