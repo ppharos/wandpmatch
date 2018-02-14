@@ -4,6 +4,10 @@
 import { createClass } from 'react';
 import { Header } from './Header';
 import { Match } from './Match';
+import { About } from './About';
+import { MatchList } from './MatchList';
+import { Contact } from './Contact';
+import { Oops } from './Oops';
 import { Footer } from './Footer';
 
 export const App = createClass({
@@ -75,7 +79,24 @@ export const App = createClass({
     return (
       <div className="app">
         <Header />
-        <Match matches={this.state.matches} />
+        {/** 
+          Stupid React needs stupid "self-invoking" function call
+          whose syntax I don't get.
+          */
+        (() => {
+          switch (this.props.location.pathname) {
+            case '/':
+              return <Match matches={this.state.matches} />;
+            case '/about':
+              return <About />;
+            case '/matches':
+              return <MatchList />;
+            case '/contact':
+              return <Contact />;
+            default:
+              return <Oops />;
+          }
+        })()}
         <Footer />
       </div>
     );

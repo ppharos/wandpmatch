@@ -37,7 +37,9 @@ export class Match extends Component {
         <div>
           {this.state.indexNo != 0 ? (
             <Left className="arrow" onClick={() => this.loadNewer(this.state.indexNo)} />
-          ) : null}
+          ) : (
+            <Left className="arrow hidden" />
+          )}
           <div className="box wine">
             {this.props.matches
               .slice(this.state.indexNo, this.state.indexNo + 1)
@@ -50,7 +52,9 @@ export class Match extends Component {
           </div>
           {this.state.indexNo != this.props.matches.length - 1 ? (
             <Right className="arrow" onClick={() => this.loadOlder(this.state.indexNo)} />
-          ) : null}
+          ) : (
+            <Right className="arrow hidden" />
+          )}
         </div>
       </div>
     );

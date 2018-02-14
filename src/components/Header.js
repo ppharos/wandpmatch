@@ -9,13 +9,21 @@ export class Header extends Component {
     return (
       <header>
         <div>
-          <h1>Wine and Painting Matching</h1>
+          <a href="/">
+            <h1>Wine and Painting Matching</h1>
+          </a>
         </div>
         <nav>
           <ul>
-            <li>about</li>
-            <li>matches</li>
-            <li>contact</li>
+            <a href="/#/about">
+              <li>about</li>
+            </a>
+            <a href="/#/matches">
+              <li>matches</li>
+            </a>
+            <a href="/#/contact">
+              <li>contact</li>
+            </a>
           </ul>
         </nav>
       </header>
