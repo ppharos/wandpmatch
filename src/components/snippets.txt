@@ -1,2 +1,7 @@
+<<<<<<< HEAD
           <div className="box wine">{this.props.matches.map((match, i) => <Wine key={i} {...match.wine} />)}</div>
           <div className="box">{this.props.matches.map((match, i) => <Painting key={i} {...match.painting} />)}</div>
+=======
+          <div className="box wine">{this.props.matches.map((match, i) => <Wine key={i} {...match.wine} />)}</div>
+          <div className="box">{this.props.matches.map((match, i) => <Painting key={i} {...match.painting} />)}</div>
+>>>>>>> 8ac8812580362e23c6ed1602d7374f60ce56c6e6

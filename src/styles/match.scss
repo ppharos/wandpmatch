@@ -36,3 +36,41 @@ h2 {
     cursor: pointer;
   }
 }
+@import 'vars';
+@import 'styles';
+$arrow-color: rgba(115, 175, 200, 0.7);
+h2 {
+  margin: 0;
+  font-family: $title-font;
+  font-size: 2*$def-size;
+  font-weight: 400;
+  text-align: center;
+  border-bottom: solid 1px black;
+  // border: solid 1px blue;
+}
+
+.box {
+  display: inline-block;
+  box-sizing: border-box;
+  max-width: 45%;
+  padding: 24px;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.wine {
+  vertical-align: top;
+  text-align: right;
+}
+
+.arrow {
+  height: 100%;
+  display: inline-block;
+  font-size: 40px;
+  color: $arrow-color;
+  // border: solid 1px blue;
+  &:hover {
+    color: lighten($arrow-color, 20%);
+    cursor: pointer;
+  }
+}
