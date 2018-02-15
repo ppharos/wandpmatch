@@ -1,8 +1,8 @@
-<<<<<<< HEAD
 /**
  * The app header and navigation bar.
  */
 import { Component } from 'react';
+import { Link } from 'react-router';
 import '../styles/header.scss';
 
 export class Header extends Component {
@@ -10,58 +10,24 @@ export class Header extends Component {
     return (
       <header>
         <div>
-          <a href="/">
+          <Link to="/">
             <h1>Wine and Painting Matching</h1>
-          </a>
+          </Link>
         </div>
         <nav>
           <ul>
-            <a href="/#/about">
+            <Link to="/about">
               <li>about</li>
-            </a>
-            <a href="/#/matches">
+            </Link>
+            <Link to="/matches">
               <li>matches</li>
-            </a>
-            <a href="/#/contact">
+            </Link>
+            <Link to="/contact">
               <li>contact</li>
-            </a>
+            </Link>
           </ul>
         </nav>
       </header>
     );
   }
 }
-=======
-/**
- * The app header and navigation bar.
- */
-import { Component } from 'react';
-import '../styles/header.scss';
-
-export class Header extends Component {
-  render() {
-    return (
-      <header>
-        <div>
-          <a href="/">
-            <h1>Wine and Painting Matching</h1>
-          </a>
-        </div>
-        <nav>
-          <ul>
-            <a href="/#/about">
-              <li>about</li>
-            </a>
-            <a href="/#/matches">
-              <li>matches</li>
-            </a>
-            <a href="/#/contact">
-              <li>contact</li>
-            </a>
-          </ul>
-        </nav>
-      </header>
-    );
-  }
-}
->>>>>>> 8ac8812580362e23c6ed1602d7374f60ce56c6e6

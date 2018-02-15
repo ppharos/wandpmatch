@@ -1,0 +1,9 @@
+@import 'vars';
+
+.about {
+  text-align: center;
+  h2 {
+    color: $title-color;
+    font-size: $nav-size;
+  }
+}
