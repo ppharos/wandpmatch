@@ -27,7 +27,7 @@ export class Contact extends Component {
     return (
       <form onSubmit={this.submit}>
         <div>
-          <p>
+          <p className="contact">
             Want to comment on Wine & Painting Matching? <br />
             You can follow me on Twitter @peter_pharos !<br />
             Want me to match your wine to a painting? <br />
