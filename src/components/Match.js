@@ -7,6 +7,7 @@ import '../styles/match.scss';
 //  Import left/right chevron icons
 import Left from 'react-icons/lib/fa/chevron-left';
 import Right from 'react-icons/lib/fa/chevron-right';
+
 import { Wine } from './Wine';
 import { Painting } from './Painting';
 
