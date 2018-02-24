@@ -2,6 +2,7 @@
  * The contact form.
  */
 import { Component, PropTypes } from 'react';
+import { CountryAC, countryList } from './CountryAC';
 import '../styles/contact.scss';
 
 export class Contact extends Component {
@@ -26,7 +27,12 @@ export class Contact extends Component {
     return (
       <form onSubmit={this.submit}>
         <div>
-          <p>Want me to match your wine to a painting? Let me know!</p>
+          <p>
+            Want to comment on Wine & Painting Matching? <br />
+            You can follow me on Twitter @peter_pharos !<br />
+            Want me to match your wine to a painting? <br />
+            Let me know!
+          </p>
         </div>
         <div>
           <label htmlFor="name"> Name* </label>
@@ -35,8 +41,8 @@ export class Contact extends Component {
           <input id="company" type="text" required ref="company" />
           <label htmlFor="email">email* </label>
           <input id="email" type="email" required ref="email" />
-          <label htmlFor="location">Location </label>
-          <input id="location" type="text" ref="location" />
+          {/*<label htmlFor="location">Location </label>*/}
+          <CountryAC id="location" options={countryList} ref="location" />
         </div>
         <div className="msgbox">
           <label htmlFor="message">Add a message</label>

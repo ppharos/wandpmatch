@@ -11,10 +11,13 @@ div {
 }
 
 p {
+  margin: 36px 0;
   color: black;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
+  line-height: 24px;
 }
+
 label,
 input {
   /* in order to define widths */
@@ -35,10 +38,18 @@ input {
 }
 
 label + input {
-  // width: 40%;
-  /* large margin-right to force the next element to the new-line
-     and margin-left to create a gutter between the label and input */
   margin: 6px 0;
+}
+
+.country {
+  display: inline-block;
+  width: 50%;
+  label {
+    width: 40%;
+  }
+  input {
+    width: 40%;
+  }
 }
 
 .msgbox {
