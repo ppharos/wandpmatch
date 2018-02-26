@@ -2,8 +2,25 @@
 
 .about {
   text-align: center;
+  max-width: 75%;
+  margin: 24px auto;
   h2 {
     color: $title-color;
     font-size: $nav-size;
+    font-weight: 400;
+    margin: 4px 0;
+    &:hover {
+      color: darken($title-color, 20%);
+      cursor: pointer;
+    }
+  }
+
+  #why-long {
+    transition: height 5s;
+  }
+
+  .collapsed {
+    height: 0px;
+    visibility: hidden;
   }
 }
