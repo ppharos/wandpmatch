@@ -9,18 +9,16 @@ export class Header extends Component {
   render() {
     return (
       <header>
-        <div>
-          <Link to="/">
-            <h1>Wine and Painting Matching</h1>
-          </Link>
-        </div>
+        <Link to="/">
+          <h1>Wine and Painting Matching</h1>
+        </Link>
         <nav>
           <ul>
             <Link to="/about">
-              <li>about</li>
+              <li>about |</li>
             </Link>
             <Link to="/matches">
-              <li>matches</li>
+              <li>matches |</li>
             </Link>
             <Link to="/contact">
               <li>contact</li>

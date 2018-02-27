@@ -3,21 +3,28 @@
 header {
   text-align: center; // background-color: gray;
   h1 {
-    margin: 1vw 0 1.5vw 0;
+    margin: 12px 0 1.5vw 0;
     font-family: $title-font;
     font-size: 4vw;
     font-weight: 500;
     color: $title-color;
     // color: red;
-    text-align: center;
+    text-align: left;
+    display: inline-block;
+    // border: 1px red solid;
+    vertical-align: text-bottom;
   }
   nav {
+    // border: 1px red solid;
+    float: right;
+    margin-top: 24px;
+    vertical-align: text-bottom;
     ul {
       text-align: right;
     }
     li {
       display: inline;
-      padding: 0 12px 0 8px;
+      padding: 0 0 0 8px;
       font-size: $nav-size;
       color: $nav-color;
       &:hover {

@@ -95,7 +95,9 @@ export class Match extends Component {
             <Twitter onClick={this.shareSocial.bind(this, 'twitter')} />
           </li>
           <li>
-            <Email onClick={this.sendEmail} />
+            <a href={this.sendEmail()}>
+              <Email />
+            </a>
           </li>
         </ul>
         <div>

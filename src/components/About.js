@@ -58,7 +58,7 @@ export class About extends Component {
         </p>
         <h2 onClick={() => this.toggleOpen('seriously')}> This is the most pretentious thing I've ever seen! </h2>
         <p id="seriously" className="collapsed">
-          You must not deal with wine match. Or art. If it's any comfort, it's not meant to be taken too seriously. The
+          You must not deal with wine much. Or art. If it's any comfort, it's not meant to be taken too seriously. The
           main point I want to make is: "have you tried looking at paintings while drinking wine? They actually go very
           well together!"
         </p>
