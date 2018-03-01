@@ -5,7 +5,7 @@ import { Component } from 'react';
 import { Header } from './Header';
 import { Match } from './Match';
 import { About } from './About';
-import { MatchList } from './MatchList';
+import { MatchTable } from './MatchTable';
 import { Contact } from './Contact';
 import { Oops } from './Oops';
 import { Footer } from './Footer';
@@ -97,7 +97,7 @@ export class App extends Component {
             case '/about':
               return <About />;
             case '/matches':
-              return <MatchList />;
+              return <MatchTable />;
             case '/contact':
               return <Contact />;
             default:
