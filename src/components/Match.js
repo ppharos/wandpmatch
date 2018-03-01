@@ -57,7 +57,7 @@ export class Match extends Component {
         socialUrl = 'https://twitter.com/share?url=' + matchUrl;
         break;
     }
-    console.log(socialUrl);
+    // console.log(socialUrl);
     //  Open the window
     window.open(socialUrl, 'sharer', 'height=350,width=600');
     if (window.focus) {
@@ -73,13 +73,17 @@ export class Match extends Component {
 
     var refText = 'mailto:?to=&subject=' + eSubject + '&body=' + eBody + matchUrl;
 
-    console.log(refText);
+    // console.log(refText);
 
     return refText;
   }
 
   render() {
-    const entriesNo = this.props.matches.length;
+    const matches = this.props.matches;
+    const entriesNo = matches.length;
+
+    console.log(this.props);
+    console.log(entriesNo);
 
     return (
       <div>
@@ -107,16 +111,16 @@ export class Match extends Component {
             <Left className="arrow hidden" />
           )}
           <div className="box wine">
-            {this.props.matches
+            {matches
               .slice(this.state.indexNo, this.state.indexNo + 1)
-              .map((match, i) => <Wine key={i} {...match.wine} />)}
+              .map((match, i) => <Wine key={i} {...match.match.wine} />)}
           </div>
           <div className="box">
-            {this.props.matches
+            {matches
               .slice(this.state.indexNo, this.state.indexNo + 1)
-              .map((match, i) => <Painting key={i} {...match.painting} />)}
+              .map((match, i) => <Painting key={i} {...match.match.painting} />)}
           </div>
-          {this.state.indexNo != this.props.matches.length - 1 ? (
+          {this.state.indexNo != matches.length - 1 ? (
             <Right className="arrow" onClick={() => this.loadOlder(this.state.indexNo)} />
           ) : (
             <Right className="arrow hidden" />
