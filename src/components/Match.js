@@ -23,6 +23,7 @@ export class Match extends Component {
     super(props);
     this.state = { indexNo: 0 };
 
+    this.latestMatch = this.latestMatch.bind(this);
     this.sendEmail = this.sendEmail.bind(this);
   }
 
@@ -36,6 +37,11 @@ export class Match extends Component {
   loadNewer(index) {
     if (index > 0) index--;
     this.setState({ indexNo: index });
+  }
+
+  /** Returns to the latest match. */
+  latestMatch() {
+    this.setState({ indexNo: 0 });
   }
 
   /** Shares the current match on social media. */
@@ -87,7 +93,9 @@ export class Match extends Component {
 
     return (
       <div>
-        <h2 className="match">Latest Match</h2>
+        <h2 className="match" onClick={this.latestMatch}>
+          Latest Match
+        </h2>
         <ul className="contact">
           <li>
             <Facebook onClick={this.shareSocial.bind(this, 'fb')} />
