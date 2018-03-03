@@ -21,7 +21,7 @@ const matchUrl = 'https://www.theguardian.com/uk';
 export class Match extends Component {
   constructor(props) {
     super(props);
-    this.state = { indexNo: 0 };
+    this.state = { indexNo: props.index };
 
     this.latestMatch = this.latestMatch.bind(this);
     this.sendEmail = this.sendEmail.bind(this);
@@ -88,8 +88,8 @@ export class Match extends Component {
     const matches = this.props.matches;
     const entriesNo = matches.length;
 
-    console.log(this.props);
-    console.log(entriesNo);
+    // console.log(this.props);
+    // console.log(entriesNo);
 
     return (
       <div>
