@@ -32,8 +32,8 @@ export class About extends Component {
           <p>
             The intention here is slightly different: we've all heard of wine-and-food pairings, and you might have seen
             the trend for wine-and-music pairings. For me, however, the latter is not a great match: while it is
-            certainly enjoyable to listen to music while drinking wine, most music changes quite quickly to be a true
-            "match." A three-minute rock song is too brief for a glass of wine; a twenty-minute classical piece will
+            certainly enjoyable to listen to music while drinking wine, most music changes quite quickly to be a "true"
+            match. A three-minute rock song is too brief for a glass of wine; a twenty-minute classical piece will
             change tempo and style quite a lot. As for movies and books, they require too much concentration; it seems
             to me that one can focus on either one or the other.
           </p>
@@ -46,21 +46,21 @@ export class About extends Component {
           </p>
           <p>
             The ubiquity of tablets and smartphones also means that we can enjoy a greater array of paintings than ever
-            before, without the need for heavy volumes of art encyclopedias. Where I can, I am using links from the
-            excellent Google Art project, which provides high resolution images, with good zoom in/out.
+            before, without the need for heavy volumes of art encyclopedias. Where I can, I use links from the excellent
+            Google Art project, which provides high resolution images, with good zoom in/out functionality.
           </p>
-          <p>So, come and join me! You might find you enjoy paintings (or wine!) more than you imagine!</p>
+          <p>So, come and join me! You might find you enjoy paintings (or wine!) more than you thought!</p>
         </div>
         <h2 onClick={() => this.toggleOpen('who')}> Who </h2>
         <p id="who" className="collapsed">
           I like paintings. I like wine. I have no qualifications in either, so I would not recommend taking me too
-          seriously. I hope you like the idea though!
+          seriously. I hope you like the idea though and you're inspired to find more wine & painting matches!
         </p>
         <h2 onClick={() => this.toggleOpen('seriously')}> This is the most pretentious thing I've ever seen! </h2>
         <p id="seriously" className="collapsed">
-          You must not deal with wine much. Or art. If it's any comfort, it's not meant to be taken too seriously. The
-          main point I want to make is: "have you tried looking at paintings while drinking wine? They actually go very
-          well together!"
+          *Ahem*. You must not deal with wine much. Or art. If it's any comfort, it's not meant to be taken too
+          seriously. The main point I want to make is: "have you tried looking at paintings while drinking wine? They
+          actually go very well together!"
         </p>
       </div>
     );
