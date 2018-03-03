@@ -93,7 +93,7 @@ export class Match extends Component {
 
     return (
       <div>
-        <h2 className="match" onClick={this.latestMatch}>
+        <h2 className="match underlined" onClick={this.latestMatch}>
           Latest Match
         </h2>
         <ul className="contact">

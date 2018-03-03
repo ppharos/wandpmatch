@@ -1,9 +1,37 @@
 @import 'vars';
 
 .matchTable {
+  margin: 0 auto;
+  // border: 1px blue solid;
+  text-align: center;
+}
+
+.matchBox {
+  display: inline-block;
+  border: 1px black solid;
+  padding: 4px;
+  margin: 1vmin;
+  width: 200px;
+  height: 160px;
+  vertical-align: bottom;
+}
+
+.preview {
+  margin: 0;
+  box-sizing: border-box;
+  max-width: 50%;
+  height: 100%;
+  display: inline-block;
+  // border: 1px blue solid;
   img {
-    border: 1px black solid;
-    width: 30%;
-    height: 200px;
+    border: none;
+    max-height: 120px;
+    max-width: 80%;
+    padding: 4px 0;
+  }
+
+  p {
+    margin: 0 auto;
+    padding: 2px;
   }
 }

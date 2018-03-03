@@ -7,19 +7,28 @@ import '../styles/matchtable.scss';
 export class MatchTable extends Component {
   constructor(props) {
     super(props);
-    this.state = { indexNo: 0 };
   }
 
   render() {
-    var matchBoxes = [];
-    for (var i = 0; i < 9; i++) {
-      matchBoxes.push(<img key={i} />);
-    }
+    const matches = this.props.matches;
 
     return (
       <div>
-        <h2>Match List</h2>
-        <div className="matchTable">{matchBoxes}</div>
+        <h2 className="match">Match List</h2>
+        <div className="matchTable">
+          {matches.map((match, i) => (
+            <div key={i} className="matchBox">
+              <div className="preview">
+                <img src={match.match.wine.label} />
+                <p>{match.match.wine.producer}</p>
+              </div>
+              <div className="preview">
+                <img src={match.match.painting.repro} />
+                <p>{match.match.painting.producer}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }

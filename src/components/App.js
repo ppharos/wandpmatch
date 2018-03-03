@@ -97,7 +97,7 @@ export class App extends Component {
             case '/about':
               return <About />;
             case '/matches':
-              return <MatchTable />;
+              return <MatchTable matches={this.state.matches.matches} />;
             case '/contact':
               return <Contact />;
             default:
