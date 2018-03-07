@@ -21,7 +21,7 @@ const matchUrl = 'https://www.theguardian.com/uk';
 export class Match extends Component {
   constructor(props) {
     super(props);
-    this.state = { indexNo: props.index };
+    this.state = { indexNo: 0 };
 
     this.latestMatch = this.latestMatch.bind(this);
     this.sendEmail = this.sendEmail.bind(this);
@@ -42,6 +42,17 @@ export class Match extends Component {
   /** Returns to the latest match. */
   latestMatch() {
     this.setState({ indexNo: 0 });
+  }
+
+  componentWillMount() {
+    console.log('Will mount state:' + this.state.indexNo);
+    // this.setState({ indexNo: this.state.indexNo });
+  }
+
+  componentDidMount() {
+    console.log('Did mount state:' + this.state.indexNo);
+    // console.log(this.state.indexNo);
+    // this.setState({ indexNo: this.state.indexNo });
   }
 
   /** Shares the current match on social media. */
@@ -121,12 +132,12 @@ export class Match extends Component {
           <div className="box wine">
             {matches
               .slice(this.state.indexNo, this.state.indexNo + 1)
-              .map((match, i) => <Wine key={i} {...match.match.wine} />)}
+              .map((match, i) => <Wine key={i} {...match.wine} />)}
           </div>
           <div className="box">
             {matches
               .slice(this.state.indexNo, this.state.indexNo + 1)
-              .map((match, i) => <Painting key={i} {...match.match.painting} />)}
+              .map((match, i) => <Painting key={i} {...match.painting} />)}
           </div>
           {this.state.indexNo != matches.length - 1 ? (
             <Right className="arrow" onClick={() => this.loadOlder(this.state.indexNo)} />

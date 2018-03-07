@@ -2,7 +2,7 @@
  * The app header and navigation bar.
  */
 import { Component } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import '../styles/header.scss';
 
 export class Header extends Component {

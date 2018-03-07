@@ -2,6 +2,7 @@
  * The main App.
  */
 import { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import { Header } from './Header';
 import { Match } from './Match';
 import { About } from './About';
@@ -9,6 +10,7 @@ import { MatchTable } from './MatchTable';
 import { Contact } from './Contact';
 import { Oops } from './Oops';
 import { Footer } from './Footer';
+import '../styles/styles.scss';
 
 export class App extends Component {
   constructor(props) {
@@ -17,40 +19,37 @@ export class App extends Component {
     const matchesJSON = require('../matches.json');
     // console.log(matches);
     // this.state = { matches: matchesJSON, index: 0 };
-    this.state = { matches: matchesJSON, index: 0 };
-  }
-
-  /** If it has been called by a router,
-   *  sets the index to a passed value. */
-  componentDidMount() {
-    var callerIndex = this.props.location.state != null ? this.props.location.state.index : 0;
-    console.log('caller index: ' + callerIndex);
-    console.log('state index: ' + this.state.index);
-    this.setState({ index: callerIndex });
+    this.state = { matches: matchesJSON.matches, index: 0 };
   }
 
   render() {
     return (
-      <div className="app">
+      <div>
         <Header />
+        <Switch>
+          {/** For unknown reasons, this now has to be 'exact' */}
+          <Route exact path="/" render={() => <Match matches={this.state.matches} />} />
+          <Route path="/about" component={About} />
+          <Route path="/matches" component={MatchTable} />
+          <Route path="/contact" component={Contact} />
+          <Route path="*" component={Oops} />
+        </Switch>
         {/** 
-          Stupid React needs stupid "self-invoking" function call
-          whose syntax I don't get.
-          */
-        (() => {
-          switch (this.props.location.pathname) {
-            case '/':
-              return <Match matches={this.state.matches.matches} index={this.state.index} />;
+          rr3.
+          (() => {
+            switch (this.props.location.pathname) {
+              case '/':
+              return <Match matches={this.state.matches} />;
             case '/about':
-              return <About />;
+            return <About />;
             case '/matches':
-              return <MatchTable matches={this.state.matches.matches} />;
-            case '/contact':
+              return <MatchTable matches={this.state.matches} />;
+              case '/contact':
               return <Contact />;
-            default:
+              default:
               return <Oops />;
-          }
-        })()}
+            }
+          })() */}
         <Footer />
       </div>
     );
