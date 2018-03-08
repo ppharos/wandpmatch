@@ -19,19 +19,21 @@ export class App extends Component {
     const matchesJSON = require('../matches.json');
     // console.log(matches);
     // this.state = { matches: matchesJSON, index: 0 };
-    this.state = { matches: matchesJSON.matches, index: 0 };
+    this.state = { matches: matchesJSON.matches };
   }
 
   render() {
+    var id;
     return (
       <div>
         <Header />
         <Switch>
           {/** For unknown reasons, this now has to be 'exact' */}
-          <Route exact path="/" render={() => <Match matches={this.state.matches} />} />
-          <Route path="/about" component={About} />
-          <Route path="/matches" component={MatchTable} />
-          <Route path="/contact" component={Contact} />
+          <Route exact path="/" render={() => <Match matches={this.state.matches} index={0} />} />
+          <Route path="/match/:id" render={id => <Match matches={this.state.matches} index={id} />} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/matches" render={() => <MatchTable matches={this.state.matches} />} />
+          <Route exact path="/contact" component={Contact} />
           <Route path="*" component={Oops} />
         </Switch>
         {/** 

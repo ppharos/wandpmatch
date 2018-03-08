@@ -7,11 +7,12 @@ import '../styles/match.scss';
 //  Import left/right chevron icons
 import Left from 'react-icons/lib/fa/chevron-left';
 import Right from 'react-icons/lib/fa/chevron-right';
-import Facebook from 'react-icons/lib/fa/facebook';
-import WhatsApp from 'react-icons/lib/fa/whatsapp';
-import Twitter from 'react-icons/lib/fa/twitter';
-import Email from 'react-icons/lib/fa/envelope-o';
+// import Facebook from 'react-icons/lib/fa/facebook';
+// import WhatsApp from 'react-icons/lib/fa/whatsapp';
+// import Twitter from 'react-icons/lib/fa/twitter';
+// import Email from 'react-icons/lib/fa/envelope-o';
 
+import { Sharer } from './Sharer';
 import { Wine } from './Wine';
 import { Painting } from './Painting';
 
@@ -21,7 +22,8 @@ const matchUrl = 'https://www.theguardian.com/uk';
 export class Match extends Component {
   constructor(props) {
     super(props);
-    this.state = { indexNo: 0 };
+    /** Set the state from the passed props.  */
+    this.state = { indexNo: props.index };
 
     this.latestMatch = this.latestMatch.bind(this);
     this.sendEmail = this.sendEmail.bind(this);
@@ -104,25 +106,7 @@ export class Match extends Component {
 
     return (
       <div>
-        <h2 className="match underlined" onClick={this.latestMatch}>
-          Latest Match
-        </h2>
-        <ul className="contact">
-          <li>
-            <Facebook onClick={this.shareSocial.bind(this, 'fb')} />
-          </li>
-          <li>
-            <WhatsApp onClick={this.shareSocial.bind(this, 'wa')} />
-          </li>
-          <li>
-            <Twitter onClick={this.shareSocial.bind(this, 'twitter')} />
-          </li>
-          <li>
-            <a href={this.sendEmail()}>
-              <Email />
-            </a>
-          </li>
-        </ul>
+        <Sharer />
         <div>
           {this.state.indexNo != 0 ? (
             <Left className="arrow" onClick={() => this.loadNewer(this.state.indexNo)} />

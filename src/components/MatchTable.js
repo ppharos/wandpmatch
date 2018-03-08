@@ -26,6 +26,9 @@ export class MatchTable extends Component {
   //     </div>
   //   </Link>
   // ))}
+  logMatch(id) {
+    console.log('match id: ' + id);
+  }
   render() {
     const matches = this.props.matches;
     // console.log(matches);
@@ -35,8 +38,8 @@ export class MatchTable extends Component {
         <h2 className="match">Match List</h2>
         <div className="matchTable">
           {matches.map((match, i) => (
-            <Link to={{ pathname: '/', state: { indexNo: 3 } }}>
-              <div key={i} className="matchBox">
+            <Link key={i} to="/match/${match.id}">
+              <div className="matchBox">
                 <div className="preview">
                   <img src={match.wine.label} />
                   <p>{match.wine.producer}</p>
