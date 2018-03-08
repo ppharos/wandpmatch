@@ -5,40 +5,17 @@ import { Component, PropTypes } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/matchtable.scss';
 
+/** Import json. */
+const matches = require('../matches.json').matches;
+
 export class MatchTable extends Component {
-  constructor(props) {
-    super(props);
-
-    // this.state = { index: 0 };
-  }
-
-  // {matches.map((match, i) => (
-  //   <Link to={{ pathname: '/', state: { indexNo: i } }}>
-  //     <div key={i} className="matchBox">
-  //       <div key={i + 1} className="preview">
-  //         <img src={match.match.wine.label} />
-  //         <p>{match.match.wine.producer}</p>
-  //       </div>
-  //       <div key={i + 2} className="preview">
-  //         <img src={match.match.painting.repro} />
-  //         <p>{match.match.painting.producer}</p>
-  //       </div>
-  //     </div>
-  //   </Link>
-  // ))}
-  logMatch(id) {
-    console.log('match id: ' + id);
-  }
   render() {
-    const matches = this.props.matches;
-    // console.log(matches);
-
     return (
       <div>
         <h2 className="match">Match List</h2>
         <div className="matchTable">
           {matches.map((match, i) => (
-            <Link key={i} to="/match/${match.id}">
+            <Link key={i} to={`/match/${match.index - 1}`}>
               <div className="matchBox">
                 <div className="preview">
                   <img src={match.wine.label} />

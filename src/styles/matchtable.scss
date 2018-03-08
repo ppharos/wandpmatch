@@ -4,6 +4,13 @@
   margin: 0 auto;
   // border: 1px blue solid;
   text-align: center;
+  a {
+    text-decoration: none;
+    color: black;
+    &:visited {
+      color: black;
+    }
+  }
 }
 
 .matchBox {

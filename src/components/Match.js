@@ -2,6 +2,7 @@
  * The wine & painting match loader.
  */
 import { Component, PropTypes } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/match.scss';
 
 //  Import left/right chevron icons
@@ -18,88 +19,51 @@ import { Painting } from './Painting';
 
 //  Get the current url (in the future to be from the db)
 const matchUrl = 'https://www.theguardian.com/uk';
+/** Import json. */
+const matches = require('../matches.json').matches;
+const entriesNo = matches.length;
 
 export class Match extends Component {
   constructor(props) {
     super(props);
-    /** Set the state from the passed props.  */
-    this.state = { indexNo: props.index };
-
-    this.latestMatch = this.latestMatch.bind(this);
-    this.sendEmail = this.sendEmail.bind(this);
+    // Set the state from the passed props.
+    //  Parse the param
+    const matchIndex = this.props.match.params.matchIndex;
+    console.log('param index' + matchIndex);
+    const index = matchIndex != null ? parseInt(matchIndex) : 0;
+    console.log('state index' + index);
+    this.state = { indexNo: index };
   }
 
-  //  Load an older match
+  /**  Load an older match - necessary because or rr's problem with nested routes */
   loadOlder(index) {
-    if (index != this.props.matches.length - 1) index++;
+    if (index != this.entriesNo - 1) index++;
     this.setState({ indexNo: index });
   }
 
-  //  Load a newer match
+  /**  Load a newer match - necessary because or rr's problem with nested routes */
   loadNewer(index) {
     if (index > 0) index--;
     this.setState({ indexNo: index });
   }
 
-  /** Returns to the latest match. */
-  latestMatch() {
-    this.setState({ indexNo: 0 });
+  loadFromIndex(callerIndex) {
+    //  Parse the param
+    const matchIndex = this.props.match.params.matchIndex;
+    const index = matchIndex != null ? parseInt(matchIndex) : 0;
+    this.setState({ indexNo: index });
   }
 
   componentWillMount() {
-    console.log('Will mount state:' + this.state.indexNo);
-    // this.setState({ indexNo: this.state.indexNo });
+    // console.log('Will mount state:' + this.state.indexNo);
   }
 
   componentDidMount() {
     console.log('Did mount state:' + this.state.indexNo);
-    // console.log(this.state.indexNo);
-    // this.setState({ indexNo: this.state.indexNo });
-  }
-
-  /** Shares the current match on social media. */
-  shareSocial(site, e) {
-    e.preventDefault();
-
-    //  Assign the url
-    var socialUrl;
-
-    //  For some weird reason it doesn't get this otoh works
-    switch (site) {
-      case 'fb':
-        socialUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + matchUrl;
-        break;
-      case 'wa':
-        socialUrl = '"whatsapp://send?text=' + matchUrl;
-        break;
-      case 'twitter':
-        socialUrl = 'https://twitter.com/share?url=' + matchUrl;
-        break;
-    }
-    // console.log(socialUrl);
-    //  Open the window
-    window.open(socialUrl, 'sharer', 'height=350,width=600');
-    if (window.focus) {
-      window.focus();
-    }
-    return false;
-  }
-
-  /** Opens the email client to send a link with the match. */
-  sendEmail() {
-    var eSubject = 'Wine%20and%20Painting%20Matching';
-    var eBody = 'Check%20out%20this%20wine%20and%20painting%20match!%20';
-
-    var refText = 'mailto:?to=&subject=' + eSubject + '&body=' + eBody + matchUrl;
-
-    // console.log(refText);
-
-    return refText;
   }
 
   render() {
-    const matches = this.props.matches;
-    const entriesNo = matches.length;
+    const index = this.state.indexNo;
 
     // console.log(this.props);
     // console.log(entriesNo);
@@ -108,22 +72,18 @@ export class Match extends Component {
       <div>
         <Sharer />
         <div>
-          {this.state.indexNo != 0 ? (
+          {index != 0 ? (
             <Left className="arrow" onClick={() => this.loadNewer(this.state.indexNo)} />
           ) : (
             <Left className="arrow hidden" />
           )}
           <div className="box wine">
-            {matches
-              .slice(this.state.indexNo, this.state.indexNo + 1)
-              .map((match, i) => <Wine key={i} {...match.wine} />)}
+            {matches.slice(index, index + 1).map((match, i) => <Wine key={i} {...match.wine} />)}
           </div>
           <div className="box">
-            {matches
-              .slice(this.state.indexNo, this.state.indexNo + 1)
-              .map((match, i) => <Painting key={i} {...match.painting} />)}
+            {matches.slice(index, index + 1).map((match, i) => <Painting key={i} {...match.painting} />)}
           </div>
-          {this.state.indexNo != matches.length - 1 ? (
+          {index != entriesNo - 1 ? (
             <Right className="arrow" onClick={() => this.loadOlder(this.state.indexNo)} />
           ) : (
             <Right className="arrow hidden" />

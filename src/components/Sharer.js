@@ -2,6 +2,7 @@
  * The wine & painting match loader.
  */
 import { Component, PropTypes } from 'react';
+import { Link } from 'react-router-dom';
 // import '../styles/sharer.scss';
 
 //  Import icons
@@ -61,9 +62,9 @@ export class Sharer extends Component {
   render() {
     return (
       <div>
-        <h2 className="match underlined" onClick={this.latestMatch}>
-          Latest Match
-        </h2>
+        <Link to="/">
+          <h2 className="match underlined">Latest Match</h2>
+        </Link>
         <ul className="contact">
           <li>
             <Facebook onClick={this.shareSocial.bind(this, 'fb')} />

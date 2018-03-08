@@ -14,10 +14,9 @@
       cursor: pointer;
     }
   }
-
-  #why-long {
-    transition: height 5s;
-    margin: 8px 0;
+  p {
+    padding: 12px;
+    border: 1px $title-color solid;
   }
 
   .collapsed {

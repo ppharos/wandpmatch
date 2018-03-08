@@ -1,7 +1,7 @@
 {
   "matches": [
     {
-      "index": 1,
+      "index": 0,
       "wine": {
         "producer": "Ca' Passion",
         "work": "Il Principe Brut",
@@ -22,7 +22,7 @@
       }
     },
     {
-      "index": 2,
+      "index": 1,
       "wine": {
         "producer": "Moët & Chandon",
         "work": "Grand vintage",
@@ -42,7 +42,7 @@
       }
     },
     {
-      "index": 3,
+      "index": 2,
       "wine": {
         "producer": "Moët & Chandon",
         "work": "Grand vintage",
