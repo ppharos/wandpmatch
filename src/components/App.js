@@ -12,12 +12,12 @@ import { Oops } from './Oops';
 import { Footer } from './Footer';
 import '../styles/styles.scss';
 
+const matches = require('../matches.json').matches;
+const entriesNo = matches.length;
+
 export class App extends Component {
   constructor(props) {
     super(props);
-    // console.log(matches);
-    // this.state = { matches: matchesJSON, index: 0 };
-    // this.state = { matches: matchesJSON.matches };
   }
 
   render() {
@@ -29,7 +29,7 @@ export class App extends Component {
           {/** For unknown reasons, this now has to be 'exact'.
            * We set it as a redirect to the latest match.
            */}
-          <Route exact path="/" render={() => <Redirect to="/match/0" />} />
+          <Route exact path="/" render={() => <Redirect to={`/match/${entriesNo - 1}`} />} />
           <Route path="/match/:matchIndex" component={Match} />
           <Route path="/about" component={About} />
           <Route path="/matches" component={MatchTable} />

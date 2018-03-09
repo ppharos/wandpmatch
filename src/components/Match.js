@@ -8,10 +8,6 @@ import '../styles/match.scss';
 //  Import left/right chevron icons
 import Left from 'react-icons/lib/fa/chevron-left';
 import Right from 'react-icons/lib/fa/chevron-right';
-// import Facebook from 'react-icons/lib/fa/facebook';
-// import WhatsApp from 'react-icons/lib/fa/whatsapp';
-// import Twitter from 'react-icons/lib/fa/twitter';
-// import Email from 'react-icons/lib/fa/envelope-o';
 
 import { Sharer } from './Sharer';
 import { Wine } from './Wine';
@@ -26,14 +22,8 @@ const entriesNo = matches.length;
 export class Match extends Component {
   constructor(props) {
     super(props);
-    // Set the state from the passed props.
-    //  Parse the param
-    // const matchIndex = this.props.match.params.matchIndex;
-    // console.log('param index' + matchIndex);
-    // const index = matchIndex != null ? parseInt(matchIndex) : 0;
-    // console.log('state index' + index);
-    // this.state = { indexNo: index };
-    this.state = { indexNo: 0 };
+    // this.state = { entryNo: entriesNo - 1 };
+    this.state = { entryNo: 0 };
   }
 
   /**
@@ -42,7 +32,7 @@ export class Match extends Component {
    */
   loadOlder(index) {
     if (index != this.entriesNo - 1) index++;
-    this.setState({ indexNo: index });
+    this.setState({ entryNo: index });
   }
 
   /**
@@ -51,15 +41,15 @@ export class Match extends Component {
    */
   loadNewer(index) {
     if (index > 0) index--;
-    this.setState({ indexNo: index });
+    this.setState({ entryNo: index });
   }
 
   /** Loads the value from a caller's index. */
   loadFromIndex(callerIndex) {
     //  Parse the param
     // const matchIndex = this.props.match.params.matchIndex;
-    const index = callerIndex != null ? parseInt(callerIndex) : 0;
-    this.setState({ indexNo: index });
+    const index = callerIndex != null ? parseInt(callerIndex) : entriesNo - 1;
+    this.setState({ entryNo: index });
   }
 
   /** When the component is loaded but not updated. Because rr is stupid like that. */
@@ -75,14 +65,16 @@ export class Match extends Component {
   }
 
   render() {
-    const index = this.state.indexNo;
+    const entryNo = this.state.entryNo;
+    //  The slice index. We use an inverse id order, hence we need to work backwards
+    const index = entriesNo - 1 - entryNo;
 
     return (
       <div>
-        <Sharer index={this.state.indexNo} />
+        <Sharer index={this.state.entryNo} />
         <div>
           {index != 0 ? (
-            <Link to={`/match/${index - 1}`}>
+            <Link to={`/match/${entryNo + 1}`}>
               <Left className="arrow" />
             </Link>
           ) : (
@@ -95,7 +87,7 @@ export class Match extends Component {
             {matches.slice(index, index + 1).map((match, i) => <Painting key={i} {...match.painting} />)}
           </div>
           {index != entriesNo - 1 ? (
-            <Link to={`/match/${index + 1}`}>
+            <Link to={`/match/${entryNo - 1}`}>
               <Right className="arrow" />
             </Link>
           ) : (
