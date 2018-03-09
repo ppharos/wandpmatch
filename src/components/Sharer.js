@@ -12,19 +12,21 @@ import Twitter from 'react-icons/lib/fa/twitter';
 import Email from 'react-icons/lib/fa/envelope-o';
 
 //  Get the current url (in the future to be from the db)
-const matchUrl = 'https://www.theguardian.com/uk';
+const wpmUrl = 'https://www.wineandpaintingmatching.com/match/';
 
 export class Sharer extends Component {
   constructor(props) {
     super(props);
     this.sendEmail = this.sendEmail.bind(this);
   }
+
   /** Shares the current match on social media. */
   shareSocial(site, e) {
     e.preventDefault();
 
     //  Assign the url
     var socialUrl;
+    var matchUrl = wpmUrl + this.props.index;
 
     //  For some weird reason it doesn't get this otoh works
     switch (site) {
@@ -52,7 +54,7 @@ export class Sharer extends Component {
     var eSubject = 'Wine%20and%20Painting%20Matching';
     var eBody = 'Check%20out%20this%20wine%20and%20painting%20match!%20';
 
-    var refText = 'mailto:?to=&subject=' + eSubject + '&body=' + eBody + matchUrl;
+    var refText = 'mailto:?to=&subject=' + eSubject + '&body=' + eBody + wpmUrl + this.props.index;
 
     // console.log(refText);
 

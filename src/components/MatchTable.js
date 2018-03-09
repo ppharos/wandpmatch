@@ -15,7 +15,7 @@ export class MatchTable extends Component {
         <h2 className="match">Match List</h2>
         <div className="matchTable">
           {matches.map((match, i) => (
-            <Link key={i} to={`/match/${match.index - 1}`}>
+            <Link key={i} to={`/match/${match.index}`}>
               <div className="matchBox">
                 <div className="preview">
                   <img src={match.wine.label} />

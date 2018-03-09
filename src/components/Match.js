@@ -28,52 +28,63 @@ export class Match extends Component {
     super(props);
     // Set the state from the passed props.
     //  Parse the param
-    const matchIndex = this.props.match.params.matchIndex;
-    console.log('param index' + matchIndex);
-    const index = matchIndex != null ? parseInt(matchIndex) : 0;
-    console.log('state index' + index);
-    this.state = { indexNo: index };
+    // const matchIndex = this.props.match.params.matchIndex;
+    // console.log('param index' + matchIndex);
+    // const index = matchIndex != null ? parseInt(matchIndex) : 0;
+    // console.log('state index' + index);
+    // this.state = { indexNo: index };
+    this.state = { indexNo: 0 };
   }
 
-  /**  Load an older match - necessary because or rr's problem with nested routes */
+  /**
+   * @deprecated
+   * Load an older match - necessary because or rr's problem with nested routes
+   */
   loadOlder(index) {
     if (index != this.entriesNo - 1) index++;
     this.setState({ indexNo: index });
   }
 
-  /**  Load a newer match - necessary because or rr's problem with nested routes */
+  /**
+   * @deprecated
+   *   Load a newer match - necessary because or rr's problem with nested routes
+   */
   loadNewer(index) {
     if (index > 0) index--;
     this.setState({ indexNo: index });
   }
 
+  /** Loads the value from a caller's index. */
   loadFromIndex(callerIndex) {
     //  Parse the param
-    const matchIndex = this.props.match.params.matchIndex;
-    const index = matchIndex != null ? parseInt(matchIndex) : 0;
+    // const matchIndex = this.props.match.params.matchIndex;
+    const index = callerIndex != null ? parseInt(callerIndex) : 0;
     this.setState({ indexNo: index });
   }
 
-  componentWillMount() {
-    // console.log('Will mount state:' + this.state.indexNo);
+  /** When the component is loaded but not updated. Because rr is stupid like that. */
+  componentWillReceiveProps(nextProps) {
+    const matchIndex = nextProps.match.params.matchIndex;
+    this.loadFromIndex(matchIndex);
   }
 
+  /** When the component is first loaded. */
   componentDidMount() {
-    console.log('Did mount state:' + this.state.indexNo);
+    const matchIndex = this.props.match.params.matchIndex;
+    this.loadFromIndex(matchIndex);
   }
 
   render() {
     const index = this.state.indexNo;
 
-    // console.log(this.props);
-    // console.log(entriesNo);
-
     return (
       <div>
-        <Sharer />
+        <Sharer index={this.state.indexNo} />
         <div>
           {index != 0 ? (
-            <Left className="arrow" onClick={() => this.loadNewer(this.state.indexNo)} />
+            <Link to={`/match/${index - 1}`}>
+              <Left className="arrow" />
+            </Link>
           ) : (
             <Left className="arrow hidden" />
           )}
@@ -84,7 +95,9 @@ export class Match extends Component {
             {matches.slice(index, index + 1).map((match, i) => <Painting key={i} {...match.painting} />)}
           </div>
           {index != entriesNo - 1 ? (
-            <Right className="arrow" onClick={() => this.loadOlder(this.state.indexNo)} />
+            <Link to={`/match/${index + 1}`}>
+              <Right className="arrow" />
+            </Link>
           ) : (
             <Right className="arrow hidden" />
           )}
@@ -93,8 +106,3 @@ export class Match extends Component {
     );
   }
 }
-
-/** Assign default prop types. */
-Match.propTypes = {
-  // matches: PropTypes.array,
-};
