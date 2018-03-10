@@ -1,21 +1,7 @@
 @import 'vars';
-@import 'about';
 
-form {
-  width: 100%;
-  margin: 0 auto;
-  color: $title-color;
-}
 div {
   display: block;
-}
-
-p.contact {
-  margin: 36px 0;
-  color: black;
-  font-size: 18px;
-  text-align: center;
-  line-height: 24px;
 }
 
 label,
@@ -75,7 +61,7 @@ label + input {
   margin: 24px auto;
   button {
     font-family: $def-font;
-    font-size: 0.8*$nav-size;
+    font-size: 0.8 * $nav-size;
 
     background-color: $title-color;
     border: none;

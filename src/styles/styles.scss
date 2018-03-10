@@ -32,6 +32,12 @@ a {
   }
 }
 
+form {
+  width: 100%;
+  margin: 0 auto;
+  color: $title-color;
+}
+
 .info {
   margin-top: 24px;
   p {
@@ -47,6 +53,13 @@ a {
   }
 }
 
+p.black {
+  margin: 36px 0;
+  color: black;
+  font-size: 18px;
+  text-align: center;
+  line-height: 24px;
+}
 .notes {
   font-family: $notes;
   line-height: 1.25 * $def-size;

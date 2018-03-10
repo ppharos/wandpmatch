@@ -3,6 +3,7 @@
  */
 import { Component, PropTypes } from 'react';
 import { CountryAC, countryList } from './CountryAC';
+import '../styles/styles.scss';
 import '../styles/contact.scss';
 
 export class Contact extends Component {
@@ -27,7 +28,7 @@ export class Contact extends Component {
     return (
       <form onSubmit={this.submit}>
         <div>
-          <p className="contact">
+          <p className="black">
             Want to comment on Wine & Painting Matching? <br />
             You can follow me on Twitter @peter_pharos !<br />
             Want me to match your wine to a painting? <br />

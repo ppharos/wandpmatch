@@ -13,6 +13,9 @@ module.exports = {
     contentBase: './dist',
     port: 3000,
   },
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
+  },
   module: {
     loaders: [
       {
@@ -22,6 +25,11 @@ module.exports = {
         query: {
           presets: ['latest', 'stage-0', 'react'],
         },
+      },
+      {
+        test: /\.jsx$/,
+        exclude: /(node_modules)/,
+        loader: 'babel-loader',
       },
       {
         test: /\.json$/,

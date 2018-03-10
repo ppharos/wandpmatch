@@ -12,12 +12,12 @@ h2.match {
   text-decoration: none;
   &:hover {
     cursor: pointer;
-    color: darkgray;
   }
   // border: solid 1px blue;
 }
 
 h2.underlined {
+  color: black;
   border-bottom: solid 1px black;
 }
 

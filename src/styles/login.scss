@@ -1,0 +1,29 @@
+@import 'vars';
+
+.login {
+  margin: 0 auto;
+  text-align: center;
+
+  label,
+  input {
+    display: block;
+    font-size: 18px;
+  }
+
+  label {
+    width: 100%;
+    /* positions the label text beside the input */
+    text-align: center;
+    margin: 24px 0 4px 0;
+  }
+
+  input {
+    margin: 0 auto;
+    width: 20%;
+    padding: 4px;
+  }
+}
+
+.login .submit button {
+  padding: 12px 16px;
+}
