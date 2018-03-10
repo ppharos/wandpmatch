@@ -68,10 +68,14 @@ export class Match extends Component {
     const entryNo = this.state.entryNo;
     //  The slice index. We use an inverse id order, hence we need to work backwards
     const index = entriesNo - 1 - entryNo;
+    //  Get the match
+    const match = matches.slice(index, index + 1)[0];
+    // console.log(match);
 
     return (
       <div>
-        <Sharer index={this.state.entryNo} />
+        {/**<Sharer index={this.state.entryNo} />*/}
+        <Sharer matchEntry={match} />
         <div>
           {index != 0 ? (
             <Link to={`/match/${entryNo + 1}`}>

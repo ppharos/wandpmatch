@@ -23,12 +23,12 @@ export class Sharer extends Component {
   /** Shares the current match on social media. */
   shareSocial(site, e) {
     e.preventDefault();
+    //  Assign the url and the text
+    const match = this.props.matchEntry;
+    var matchUrl = wpmUrl + match.entryNo;
+    var matchText = encodeURIComponent(match.wine.producer + ' with ' + match.painting.producer + '!');
 
-    //  Assign the url
     var socialUrl;
-    var matchUrl = wpmUrl + this.props.index;
-
-    //  For some weird reason it doesn't get this otoh works
     switch (site) {
       case 'fb':
         socialUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + matchUrl;
@@ -37,7 +37,7 @@ export class Sharer extends Component {
         socialUrl = '"whatsapp://send?text=' + matchUrl;
         break;
       case 'twitter':
-        socialUrl = 'https://twitter.com/share?url=' + matchUrl;
+        socialUrl = 'https://twitter.com/share?text=' + matchText + '&url=' + matchUrl;
         break;
     }
     // console.log(socialUrl);
