@@ -1,0 +1,42 @@
+@import 'vars';
+
+.ibox {
+  display: inline-block;
+  width: 48%;
+  vertical-align: top;
+
+  h2 {
+    text-align: center;
+  }
+  label,
+  input {
+    /* in order to define widths */
+    display: inline-block;
+    font-size: 18px;
+  }
+
+  label {
+    width: 30%;
+    /* positions the label text beside the input */
+    text-align: right;
+    margin: 12px 16px 12px 0;
+  }
+
+  input {
+    width: 60%;
+    padding: 4px;
+  }
+
+  label + input {
+    margin: 6px 0;
+  }
+
+  input.imgfield {
+    min-height: 120px;
+  }
+}
+
+label.center {
+  text-align: center;
+  width: 100%;
+}

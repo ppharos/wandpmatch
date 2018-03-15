@@ -4,7 +4,7 @@
  */
 import { Component } from 'react';
 import { Login } from './Login';
-import { About } from './About';
+import { EntryForm } from './EntryForm';
 import '../styles/login.scss';
 
 //  This will actually remember the state
@@ -23,7 +23,7 @@ export class BackOffice extends Component {
   componentWillMount() {
     if (this.state.logged) {
       this.setState({
-        show: <About />,
+        show: <EntryForm />,
       });
     } else {
       this.setState({
@@ -39,7 +39,7 @@ export class BackOffice extends Component {
     success = true;
     localStorage.setItem('logged', true);
 
-    this.setState({ show: <About /> });
+    this.setState({ show: <EntryForm /> });
   }
 
   render() {
