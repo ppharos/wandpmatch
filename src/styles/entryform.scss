@@ -47,8 +47,18 @@ label.center {
   border: 1px gray dashed;
   width: 40%;
   height: 180px;
-  padding: 12px;
+  padding: 8px;
   vertical-align: center;
+  text-align: center;
+
+  img {
+    border: none;
+    width: auto;
+    height: auto;
+    padding: 0px;
+    max-width: 60%;
+    max-height: 60%;
+  }
 }
 
 .imgAccept {
@@ -59,9 +69,4 @@ label.center {
   border: 1px red solid;
   color: 'white';
   background-color: rgba($color: #ff0000, $alpha: 0.5);
-}
-
-.preview {
-  max-width: 60%;
-  max-height: 60%;
 }

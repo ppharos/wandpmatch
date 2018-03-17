@@ -40,7 +40,7 @@ export class ImageDrop extends Component {
 
   /** Show an error message if the drop has been rejected. */
   onDropRejected() {
-    this.setState({ uploadedFile: '', caption: 'The file type is not suitable' });
+    this.setState({ uploadedFile: '', caption: 'The file type is not suitable. Please select an image file.' });
   }
 
   /** Update the state of parent, so it has hold of the URL to upload on submit. */
@@ -58,7 +58,7 @@ export class ImageDrop extends Component {
         onDropRejected={this.onDropRejected}
       >
         <p> {this.state.caption} </p>
-        <img className="preview" src={this.state.uploadedFile} />
+        <img className="imgDrop" src={this.state.uploadedFile} />
       </Dropzone>
     );
   }
