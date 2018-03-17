@@ -6,37 +6,59 @@
  */
 
 import { Component, PropTypes } from 'react';
-import { Dropzone } from 'react-dropzone';
-// import '../styles/entryform.scss';
+import Dropzone from 'react-dropzone';
+import '../styles/entryform.scss';
 
 export class ImageDrop extends Component {
   constructor(props) {
     super(props);
-    this.state = { uploadedFile: '' };
+    this.state = {
+      uploadedFile: '',
+      caption: props.text,
+    };
 
     this.onImageDrop = this.onImageDrop.bind(this);
+    this.onDropRejected = this.onDropRejected.bind(this);
   }
 
   /** DropZone method that defines what happens when the image is dropped. */
   onImageDrop(files) {
-    this.setState({
-      uploadedFile: files[0],
-    });
+    //  create the new file reader object and read the file
+    const reader = new FileReader();
+    //  onload set the result as state
+    reader.onload = () => {
+      this.setState({ uploadedFile: reader.result, caption: 'Selected image' });
+    };
+    reader.onabort = () => console.log('File reading aborted');
+    reader.onerror = () => console.log('File reading failed');
+
+    reader.readAsDataURL(files[0]);
 
     // Save a copy of the image locally
-    this.handleImageUpload(files[0]);
+    // this.handleImageUpload(files[0]);
+  }
+
+  /** Show an error message if the drop has been rejected. */
+  onDropRejected() {
+    this.setState({ uploadedFile: '', caption: 'The file type is not suitable' });
   }
 
   /** Update the state of parent, so it has hold of the URL to upload on submit. */
-  handleImageUpload(file) {
-    this.props.url = path.dirname(file);
-    console.log(this.props.url);
-  }
+  handleImageUpload(file) {}
 
   render() {
     return (
-      <Dropzone multiple={false} accept="image/*" onDrop={this.onImageDrop}>
-        <p> {this.props.text} </p>
+      <Dropzone
+        className="imgDrop"
+        acceptClassName="imgAccept"
+        rejectClassName="imgReject"
+        multiple={false}
+        accept="image/jpg,image/png"
+        onDropAccepted={this.onImageDrop}
+        onDropRejected={this.onDropRejected}
+      >
+        <p> {this.state.caption} </p>
+        <img className="preview" src={this.state.uploadedFile} />
       </Dropzone>
     );
   }

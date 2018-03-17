@@ -38,8 +38,14 @@ export class EntryForm extends Component {
           <input id="vintage" type="text" required ref="vintage" />
           <label htmlFor="terroir">Terroir </label>
           <input id="terroir" type="text" required ref="terroir" />
-          <label htmlFor="label">Label </label>
-          <ImageDrop text={'Drop a wine label image or click to select a file to upload.'} url={this.state.labelURL} />
+          <label htmlFor="label" className="top">
+            Label
+          </label>
+          <ImageDrop
+            id="label"
+            text={'Drop a wine label image or click to select a file to upload.'}
+            url={this.state.labelURL}
+          />
         </div>
         <div className="ibox">
           <h2>Painting</h2>
@@ -55,8 +61,14 @@ export class EntryForm extends Component {
           <input id="venue" type="text" required ref="venue" />
           <label htmlFor="source">Link</label>
           <input id="source" type="text" required ref="source" />
-          <label htmlFor="repro">Image</label>
-          <input id="repro" className="imgfield" type="text" required ref="repro" />
+          <label htmlFor="repro" className="top">
+            Pic
+          </label>
+          <ImageDrop
+            id="repro"
+            text={'Drop a painting pic or click to select a file to upload.'}
+            url={this.state.reproURL}
+          />
         </div>
         <div className="msgbox">
           <label className="center" htmlFor="notes">

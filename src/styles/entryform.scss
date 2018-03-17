@@ -6,6 +6,7 @@
   vertical-align: top;
 
   h2 {
+    width: 100%;
     text-align: center;
   }
   label,
@@ -30,13 +31,37 @@
   label + input {
     margin: 6px 0;
   }
-
-  input.imgfield {
-    min-height: 120px;
-  }
 }
 
+label.top {
+  vertical-align: top;
+}
 label.center {
   text-align: center;
+  vertical-align: center;
   width: 100%;
+}
+
+.imgDrop {
+  display: inline-block;
+  border: 1px gray dashed;
+  width: 40%;
+  height: 180px;
+  padding: 12px;
+  vertical-align: center;
+}
+
+.imgAccept {
+  border: 1px green solid;
+}
+
+.imgReject {
+  border: 1px red solid;
+  color: 'white';
+  background-color: rgba($color: #ff0000, $alpha: 0.5);
+}
+
+.preview {
+  max-width: 60%;
+  max-height: 60%;
 }
