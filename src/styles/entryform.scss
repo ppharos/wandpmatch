@@ -1,11 +1,10 @@
 @import 'vars';
-
 .ibox {
   display: inline-block;
   width: 48%;
   vertical-align: top;
-
   h2 {
+    border-bottom: 1px black solid; // margin-left: 15%;
     width: 100%;
     text-align: center;
   }
@@ -15,19 +14,16 @@
     display: inline-block;
     font-size: 18px;
   }
-
   label {
     width: 30%;
     /* positions the label text beside the input */
     text-align: right;
     margin: 12px 16px 12px 0;
   }
-
   input {
     width: 60%;
     padding: 4px;
   }
-
   label + input {
     margin: 6px 0;
   }
@@ -36,6 +32,7 @@
 label.top {
   vertical-align: top;
 }
+
 label.center {
   text-align: center;
   vertical-align: center;
@@ -50,7 +47,6 @@ label.center {
   padding: 8px;
   vertical-align: center;
   text-align: center;
-
   img {
     border: none;
     width: auto;
@@ -69,4 +65,28 @@ label.center {
   border: 1px red solid;
   color: 'white';
   background-color: rgba($color: #ff0000, $alpha: 0.5);
+}
+
+.logout {
+  text-align: right;
+  margin: 12px auto;
+  button {
+    border: 1px solid $title-color;
+    font-family: $def-font;
+    font-size: 0.6 * $nav-size;
+
+    background-color: white;
+    // border: none;
+    color: $title-color;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+
+    &:hover {
+      background-color: darken($title-color, 20%);
+      color: white;
+      cursor: pointer;
+    }
+  }
 }
