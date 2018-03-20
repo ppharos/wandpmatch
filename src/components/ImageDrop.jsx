@@ -34,17 +34,14 @@ export class ImageDrop extends Component {
 
     reader.readAsDataURL(files[0]);
 
-    // Save a copy of the image locally
-    // this.handleImageUpload(files[0]);
+    // Pass a copy of the image to the entry form state
+    this.props.upload(this.state.uploadedFile);
   }
 
   /** Show an error message if the drop has been rejected. */
   onDropRejected() {
     this.setState({ uploadedFile: '', caption: 'The file type is not suitable. Please select an image file.' });
   }
-
-  /** Update the state of parent, so it has hold of the URL to upload on submit. */
-  handleImageUpload(file) {}
 
   render() {
     return (
@@ -53,7 +50,7 @@ export class ImageDrop extends Component {
         acceptClassName="imgAccept"
         rejectClassName="imgReject"
         multiple={false}
-        accept="image/jpg,image/png"
+        accept="image/jpeg,image/png"
         onDropAccepted={this.onImageDrop}
         onDropRejected={this.onDropRejected}
       >

@@ -44,14 +44,16 @@ label + input {
     margin-top: 24px;
   }
   label,
-  input {
+  textarea {
     display: block;
   }
-  input {
+  textarea {
+    font-family: $def-font;
+    font-size: $def-size;
     width: 50%;
     min-height: 60px;
     margin: 0 auto;
-    padding: 8px;
+    padding: 12px;
     vertical-align: top;
   }
 }

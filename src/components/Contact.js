@@ -47,7 +47,7 @@ export class Contact extends Component {
         </div>
         <div className="msgbox">
           <label htmlFor="message">Add a message</label>
-          <input id="message" type="text" ref="message" />
+          <textarea id="message" type="text" ref="message" />
         </div>
         <div className="submit">
           <button>Submit</button>
