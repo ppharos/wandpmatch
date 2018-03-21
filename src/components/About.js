@@ -54,13 +54,13 @@ export class About extends Component {
         <h2 onClick={() => this.toggleOpen('who')}> Who </h2>
         <p id="who" className="collapsed">
           I like paintings. I like wine. I have no qualifications in either, so I would not recommend taking me too
-          seriously. I hope you like the idea though and you're inspired to find more wine & painting matches!
+          seriously. I hope you like the idea though and it inspires you to find more wine & painting matches!
         </p>
         <h2 onClick={() => this.toggleOpen('seriously')}> This is the most pretentious thing I've ever seen! </h2>
         <p id="seriously" className="collapsed">
-          *Ahem*. You must not deal with wine much. Or art. If it's any comfort, it's not meant to be taken too
-          seriously. The main point I want to make is: "have you tried looking at paintings while drinking wine? They
-          actually go very well together!"
+          *ahem*. You must not deal with wine much. Or art. If it's any comfort, it's not meant to be taken too
+          seriously. The main point is: "have you tried looking at paintings while drinking wine? They actually go very
+          well together!"
         </p>
       </div>
     );
