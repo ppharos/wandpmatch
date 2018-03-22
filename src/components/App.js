@@ -13,8 +13,9 @@ import { Oops } from './Oops';
 import { Footer } from './Footer';
 import '../styles/styles.scss';
 
-const matches = require('../matches.json').matches;
-const entriesNo = matches.length;
+//  These can be updated if there're more entries
+var matches = require('../matches.json').matches;
+var entriesNo = matches.length;
 var logged;
 
 export class App extends Component {

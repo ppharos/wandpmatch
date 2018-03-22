@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import '../styles/matchtable.scss';
 
 /** Import json. */
-const matches = require('../matches.json').matches;
+var matches = require('../matches.json').matches;
 
 export class MatchTable extends Component {
   render() {

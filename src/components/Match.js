@@ -17,7 +17,8 @@ import { Painting } from './Painting';
 const matchUrl = 'https://www.theguardian.com/uk';
 /** Import json. */
 const matches = require('../matches.json').matches;
-const entriesNo = matches.length;
+//  This can be updated if there're more entries
+var entriesNo = matches.length;
 
 export class Match extends Component {
   constructor(props) {
